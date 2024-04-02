@@ -34,9 +34,10 @@ public class EmployeeController {
     }
 
     @PostMapping("/insert")
-    public String insertEmployee(@ModelAttribute("employee") @Valid Employee employee, BindingResult bindingResult) {
+    public String insertEmployee(@ModelAttribute("employee") @Valid Employee employee, BindingResult bindingResult,Model model) {
 
         if (bindingResult.hasErrors()){
+            model.addAttribute("stateList", DataGenerator.getAllStates());
             return "employee/employee-create";
         }
 
