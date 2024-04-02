@@ -1,5 +1,6 @@
 package com.zee.controller;
 
+import com.zee.bootsrap.DataGenerator;
 import com.zee.model.Employee;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ public class EmployeeController {
     public String createEmployee(Model model){
 
         model.addAttribute("employee", new Employee());
+        model.addAttribute("stateList", DataGenerator.getAllStates());
 
         return "employee/employee-create";
     }
